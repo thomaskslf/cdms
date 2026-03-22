@@ -222,7 +222,7 @@ bsz_doc = Document(project_id=proj_b.id, doc_type=DocType.bestückzeichnung,
 db.add(bsz_doc)
 db.flush()
 bsz_v1 = make_version(bsz_doc, hans, "1.0", "BSZ_Hauptplatine_Rev_A.pdf", "application/pdf",
-                      b"%PDF-1.4 Bestückzeichnung Platine Rev A",
+                      b"%PDF-1.4 Bestueckzeichnung Platine Rev A",
                       "Rev A – Erstversion", datetime.utcnow() - timedelta(days=20),
                       extracted_text="BESTÜCKPLAN Hauptplatine SK-200\nRev A\nSMD-Bauteile: 142\nTHT-Bauteile: 18\nReferenzpunkt: X=5mm Y=5mm",
                       is_current=True)
