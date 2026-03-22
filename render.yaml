@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cdms-demo
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:////app/data/cdms.db
+      - key: STORAGE_ROOT
+        value: /app/storage
+    disk:
+      name: cdms-data
+      mountPath: /app/data
+      sizeGB: 1

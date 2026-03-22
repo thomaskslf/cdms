@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  cdms:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - cdms-data:/app/data
+      - cdms-storage:/app/storage
+    environment:
+      - SECRET_KEY=local-demo-secret
+      - DATABASE_URL=sqlite:////app/data/cdms.db
+      - STORAGE_ROOT=/app/storage
+    restart: unless-stopped
+
+volumes:
+  cdms-data:
+  cdms-storage:
