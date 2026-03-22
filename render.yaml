@@ -11,7 +11,3 @@ services:
         value: sqlite:////app/data/cdms.db
       - key: STORAGE_ROOT
         value: /app/storage
-    disk:
-      name: cdms-data
-      mountPath: /app/data
-      sizeGB: 1

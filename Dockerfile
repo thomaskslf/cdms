@@ -34,10 +34,9 @@ COPY backend/ ./
 # Copy built frontend into backend/static/
 COPY --from=frontend-builder /app/frontend/dist/ ./static/
 
-# Persistent storage for uploaded files and SQLite DB
-VOLUME ["/app/storage", "/app/data"]
+# Storage dirs inside container (demo: data resets on redeploy — acceptable for free tier)
+RUN mkdir -p /app/storage /app/data
 
-# Database in /app/data so it survives restarts (mount a volume there)
 ENV DATABASE_URL=sqlite:////app/data/cdms.db
 ENV STORAGE_ROOT=/app/storage
 ENV SECRET_KEY=change-me-in-production
